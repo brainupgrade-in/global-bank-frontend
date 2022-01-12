@@ -1,0 +1,79 @@
+<div id="wrapper">
+
+  <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-info p-0">
+    <div class="container-fluid d-flex flex-column p-0"><a
+        class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+        <div class="sidebar-brand-icon rotate-n-15"><em class="fas fa-laugh-wink"></em></div>
+        <div class="sidebar-brand-text mx-2"><span>MFPE BANK</span></div>
+      </a>
+      <hr class="sidebar-divider my-0">
+      <ul class="navbar-nav text-light" id="accordionSidebar">
+        <li class="nav-item"><a class="nav-link " (click)="getDashboard()"><em class="fas fa-tachometer-alt"></em><span>
+              Dashboard</span></a></li>
+        <li class="nav-item"><a class="nav-link " (click)="deposit()"><em class="fas fa-piggy-bank"></em><span>
+              Deposit</span></a></li>
+        <li class="nav-item"><a class="nav-link " (click)="withdraw()"><em class="fas fa-hand-holding-usd"></em><span>
+              Withdraw</span></a></li>
+        <li class="nav-item"><a class="nav-link " (click)="transfer()"><em class="fas fa-random"></em><span>
+              Transfer</span></a></li>
+        <li class="nav-item"><a class="nav-link active" (click)="viewStatements()"><em
+              class="fas fa-money-check-alt"></em><span>
+              View Statements</span></a></li>
+        <li class="nav-item"><a class="nav-link" (click)="logout()"><em class="fas fa-sign-out-alt"></em><span>
+              Logout</span></a></li>
+      </ul>
+
+    </div>
+  </nav>
+  <div class="d-flex flex-column" id="content-wrapper">
+    <div id="content">
+      <br>
+      <br>
+      <div class="container-fluid">
+        <h3 class="text-dark mb-4">Your statements</h3>
+        <div class="card shadow">
+          <div class="card-header py-3">
+            <p class="text-primary m-0 fw-bold">Statements info </p>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+              <table class="table my-0" id="dataTable">
+                <thead>
+                  <tr>
+                    <th>Trasaction id</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let transaction of transactions">
+                    <td>{{ transaction.id }}</td>
+                    <td>
+                      {{ transaction.sourceOwnerName }} ({{
+              transaction.sourceAccountId
+            }})
+                    </td>
+                    <td>
+                      {{ transaction.targetOwnerName }} ({{
+              transaction.targetAccountId
+            }})
+                    </td>
+                    <td>{{ transaction.reference }}</td>
+                    <td>₹ {{ transaction.amount }}</td>
+                    <td>{{ transaction.initiationDate.substring(0, 10).split("-").reverse().join("-") }}</td>
+
+                  </tr>
+                </tbody>
+
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,170 @@
+<!-- <div class="col-md-6 offset-md-3 mt-5">
+  <div class="card">
+    <h4 class="card-header">Provide Account details</h4>
+    <div class="card-body">
+      <form [formGroup]="createAccountForm" (ngSubmit)="createAccount()">
+        <div class="form-group">
+          <label for="accountId">Account ID</label>
+          <input
+            type="number"
+            formControlName="accountId"
+            id="accountId"
+            class="form-control"
+            name="accountId"
+            [ngClass]="{ 'is-invalid': submitted && f.accountId.errors }"
+            placeholder="Enter an accountId"
+          />
+          <br />
+          <div *ngIf="submitted && f.accountId.errors" class="invalid-feedback">
+            <div *ngIf="f.accountId.errors.required">Account ID required</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="accountType">Account Type : </label>
+
+          <select
+            name="accountType"
+            formControlName="accountType"
+            id="accountType"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.accountType.errors }"
+          >
+            <option selected="selected" value="Savings">Savings</option>
+            <option value="Current">Current</option>
+          </select>
+          <div *ngIf="submitted && f.accountType.errors" class="invalid-feedback">
+            <div *ngIf="f.accountType.errors.required">Select an account type</div>
+          </div>
+          <br />
+        </div>
+        <div class="form-group">
+          <label for="ownerName">Owner Name</label>
+          <input
+            type="text"
+            formControlName="ownerName"
+            class="form-control"
+            name="ownerName"
+            id="ownerName"
+            placeholder="Enter owner's name"
+          />
+          <div *ngIf="submitted && f.ownerName.errors" class="invalid-feedback">
+            <div *ngIf="f.ownerName.errors.required">ownerName required</div>
+          </div>
+        </div>
+
+        <button style="margin-left: 10%" type="reset" class="btn btn-primary">
+          Reset
+        </button>
+        <button
+          [disabled]="loading"
+          type="submit"
+          style="float: right; margin-right: 10%"
+          class="btn btn-primary"
+        >
+          <span
+            *ngIf="loading"
+            class="spinner-border spinner-border-sm mr-1"
+          ></span>
+          Create Account
+        </button>
+      </form>
+      <div *ngIf="error" class="alert alert-danger mt-3 mb-0">
+        {{ error }}
+    </div>
+    </div>
+  </div>
+</div> -->
+
+<div id="wrapper">
+  <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+    <div class="container-fluid d-flex flex-column p-0"><a
+        class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+        <div class="sidebar-brand-icon rotate-n-15"><em class="fas fa-laugh-wink"></em></div>
+        <div class="sidebar-brand-text mx-2"><span>MFPE BANK</span></div>
+      </a>
+      <hr class="sidebar-divider my-0">
+      <ul class="navbar-nav text-light" id="accordionSidebar">
+        <li class="nav-item"><a class="nav-link" (click)="getDashboard()"><em class="fas fa-tachometer-alt"></em><span>
+              Dashboard</span></a></li>
+        <li class="nav-item "><a class="nav-link active" (click)="getCustomers()"><em class="fas fa-user"></em><span>
+              Customers</span></a></li>
+        <li class="nav-item"><a class="nav-link" (click)="logout()"><em class="fas fa-sign-out-alt"></em><span>
+              Logout</span></a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <div class="d-flex flex-column" id="content-wrapper">
+    <div id="content">
+
+      <br>
+      <div class="container-fluid">
+        <h3 class="text-dark mb-4">Accounts </h3>
+        <div class="card shadow">
+          <div class="card-header py-3">
+            <p class="text-primary m-0 fw-bold">Account info<a class="btn btn-primary"
+                style="float: right; color: white;" (click)="createAccount()"><span
+                *ngIf="loading"
+                class="spinner-border spinner-border-sm mr-1"
+              ></span> Create account</a></p>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="createAccountForm" (ngSubmit)="createAccount()">
+              <div class="form-group">
+                <label for="accountId">Account ID</label>
+                <input
+                  type="number"
+                  formControlName="accountId"
+                  id="accountId"
+                  class="form-control"
+                  name="accountId"
+                  [ngClass]="{ 'is-invalid': submitted && f.accountId.errors }"
+                  placeholder="Enter an accountId"
+                />
+                <br />
+                <div *ngIf="submitted && f.accountId.errors" class="invalid-feedback">
+                  <div *ngIf="f.accountId.errors.required">Account ID required</div>
+                </div>
+              </div>
+      
+              <div class="form-group">
+                <label for="accountType">Account Type : </label>
+      
+                <select
+                  name="accountType"
+                  formControlName="accountType"
+                  id="accountType"
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.accountType.errors }"
+                >
+                  <option selected="selected" value="Savings">Savings</option>
+                  <option value="Current">Current</option>
+                </select>
+                <div *ngIf="submitted && f.accountType.errors" class="invalid-feedback">
+                  <div *ngIf="f.accountType.errors.required">Select an account type</div>
+                </div>
+                <br />
+              </div>
+              <div class="form-group">
+                <label for="ownerName">Owner Name</label>
+                <input
+                  type="text"
+                  formControlName="ownerName"
+                  class="form-control"
+                  name="ownerName"
+                  id="ownerName"
+                  placeholder="Enter owner's name"
+                />
+                <div *ngIf="submitted && f.ownerName.errors" class="invalid-feedback">
+                  <div *ngIf="f.ownerName.errors.required">ownerName required</div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

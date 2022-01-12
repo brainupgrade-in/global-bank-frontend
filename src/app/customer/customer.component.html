@@ -1,0 +1,96 @@
+<!-- <hr />
+<button class="btn btn-warning" (click)="deposit()">Deposit</button>
+<hr />
+<button class="btn btn-primary" (click)="withdraw()">Withdraw</button>
+<hr />
+<button class="btn btn-info" (click)="transfer()">Transfer</button>
+<hr />
+<button class="btn btn-info" (click)="viewTransactions()">View Transactions</button>
+<hr />
+<button class="btn btn-info" (click)="viewStatements()">View Statements</button>
+<hr /> -->
+
+<div id="wrapper">
+  <nav
+    class="
+      navbar navbar-dark
+      align-items-start
+      sidebar sidebar-dark
+      accordion
+      bg-gradient-info
+      p-0
+    "
+  >
+    <div class="container-fluid d-flex flex-column p-0">
+      <a
+        class="
+          navbar-brand
+          d-flex
+          justify-content-center
+          align-items-center
+          sidebar-brand
+          m-0
+        "
+        href="#"
+      >
+        <div class="sidebar-brand-icon rotate-n-15">
+          <em class="fas fa-laugh-wink"></em>
+        </div>
+        <div class="sidebar-brand-text mx-2"><span>MFPE BANK</span></div>
+      </a>
+      <hr class="sidebar-divider my-0" />
+      <ul class="navbar-nav text-light" id="accordionSidebar">
+        <li class="nav-item">
+          <a class="nav-link active" (click)="getDashboard()"
+            ><em class="fas fa-tachometer-alt"></em><span> Dashboard</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="deposit()"
+            ><em class="fas fa-piggy-bank"></em><span> Deposit</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="withdraw()"
+            ><em class="fas fa-hand-holding-usd"></em><span> Withdraw</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="transfer()"
+            ><em class="fas fa-random"></em><span> Transfer</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="viewStatements()"
+            ><em class="fas fa-money-check-alt"></em
+            ><span> View Statements</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="logout()"
+            ><em class="fas fa-sign-out-alt"></em><span> Logout</span></a
+          >
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="d-flex flex-column" id="content-wrapper">
+    <div id="content">
+      <br />
+      <br />
+      <div class="container-fluid">
+        <h3 class="text-dark mb-4">Welcome to MFPE Bank!</h3>
+        <div class="card shadow">
+          <div class="card-body">
+            <p>
+              Welcome Back! <br />
+              <br />Here you will be able to perform various banking operations
+              including withdrawal, deposit, transfer, and view past transaction
+              details.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,109 @@
+<!-- <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button
+        name="addAccount"
+        id="addAccount"
+        class="btn btn-primary"
+        (click)="createAccount()"
+        role="button"
+      >
+        Add account
+      </button>
+      <table
+        class="
+          table table-bordered table-striped table-inverse table-responsive
+        "
+      >
+        <thead class="thead-inverse">
+          <tr>
+            <th>Account ID</th>
+            <th>Account Type</th>
+            <th>Current Balance</th>
+            <th>Transactions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let account of accounts">
+            <td>{{ account.accountId }}</td>
+            <td>{{ account.accountType }}</td>
+            <td>{{ account.currentBalance }}</td>
+            <td>
+              <a class="active" (click)="viewTransactions(account.accountId)"
+                >View Transactions</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> -->
+
+
+
+<div id="wrapper">
+  <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+    <div class="container-fluid d-flex flex-column p-0"><a
+        class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+        <div class="sidebar-brand-icon rotate-n-15"><em class="fas fa-laugh-wink"></em></div>
+        <div class="sidebar-brand-text mx-2"><span>MFPE BANK</span></div>
+      </a>
+      <hr class="sidebar-divider my-0">
+      <ul class="navbar-nav text-light" id="accordionSidebar">
+        <li class="nav-item"><a class="nav-link" (click)="getDashboard()"><em class="fas fa-tachometer-alt"></em><span>
+              Dashboard</span></a></li>
+        <li class="nav-item "><a class="nav-link active" (click)="getCustomers()"><em class="fas fa-user"></em><span>
+              Customers</span></a></li>
+        <li class="nav-item"><a class="nav-link" (click)="logout()"><em class="fas fa-sign-out-alt"></em><span>
+              Logout</span></a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <div class="d-flex flex-column" id="content-wrapper">
+    <div id="content">
+
+      <br>
+      <div class="container-fluid">
+        <h3 class="text-dark mb-4">{{ customerid.toUpperCase() }}'s Accounts </h3>
+        <div class="card shadow">
+          <div class="card-header py-3">
+            <p class="text-primary m-0 fw-bold">Account info<a class="btn btn-primary"
+                style="float: right; color: white;" (click)="createAccount()">Add account</a></p>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+              <table class="table my-0" id="dataTable">
+                <thead>
+                  <tr>
+                    <th>Account ID</th>
+                    <th>Account Type</th>
+                    <th>Current Balance</th>
+                    <th>Transactions</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let account of accounts">
+                    <td>{{ account.accountId }}</td>
+                    <td>{{ account.accountType }}</td>
+                    <td>₹ {{ account.currentBalance }}</td>
+                    <td>
+                      <a style="color: blue;" class="active" (click)="viewTransactions(account.accountId)">View
+                        Transactions</a>
+                    </td>
+
+                  </tr>
+                </tbody>
+
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,133 @@
+<!-- <div class="col-md-6 offset-md-3 mt-3">
+  <div class="card">
+    <h4 class="card-header">Welcome back!</h4>
+    <div class="card-body">
+      <form [formGroup]="idForm" (ngSubmit)="getCustomer()">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="userid"
+            name="userid"
+            id="userid"
+            placeholder="Enter an userid"
+          />
+        </div>
+        <button
+          type="submit"
+          style="display: inline-block; margin-right: 60px"
+          class="btn btn-primary"
+          (click)="getCustomer()"
+        >
+          Get Customer
+        </button>
+        <button
+          class="btn btn-primary"
+          (click)="createCustomer()"
+          style="display: inline-block"
+        >
+          Create New Customer
+        </button>
+      </form>
+
+      <hr />
+      <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+      <div *ngIf="isLoaded && !loading">
+        <b>Userid: {{ customer.userid }}</b> <br /><br />
+      </div>
+      <table
+        class="table table-striped table-inverse table-responsive"
+        *ngIf="isLoaded"
+      >
+        <thead class="thead-dark">
+          <tr>
+            <th>User</th>
+            <th>Date of Birth</th>
+            <th>PAN</th>
+            <th>Address</th>
+            <th>Accounts</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td scope="row">{{ customer.username }}</td>
+            <td>{{ customer.dateOfBirth }}</td>
+            <td>{{ customer.pan }}</td>
+            <td>{{ customer.address }}</td>
+            <td><a (click)="viewAccounts(customer.userid)">View accounts</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> -->
+
+
+<div id="wrapper">
+
+  <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+    <div class="container-fluid d-flex flex-column p-0"><a
+        class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+        <div class="sidebar-brand-icon rotate-n-15"><em class="fas fa-laugh-wink"></em></div>
+        <div class="sidebar-brand-text mx-2"><span>MFPE BANK</span></div>
+      </a>
+      <hr class="sidebar-divider my-0">
+      <ul class="navbar-nav text-light" id="accordionSidebar">
+        <li class="nav-item"><a class="nav-link " (click)="getDashboard()"><em class="fas fa-tachometer-alt"></em><span>
+              Dashboard</span></a></li>
+        <li class="nav-item"><a class="nav-link active" (click)="getCustomers()"><em class="fas fa-user"></em><span>
+              Customers</span></a></li>
+        <li class="nav-item"><a class="nav-link" (click)="logout()"><em class="fas fa-sign-out-alt"></em><span>
+              Logout</span></a></li>
+      </ul>
+
+    </div>
+  </nav>
+  <div class="d-flex flex-column" id="content-wrapper">
+    <div id="content">
+      <br>
+      <div class="container-fluid">
+        <h3 class="text-dark mb-4">Cutomers</h3>
+        <div class="card shadow">
+          <div class="card-header py-3">
+            <p class="text-primary m-0 fw-bold">Customer Info <a  class="btn btn-primary" style="float: right; color: white;" (click)="createCustomer()">Add
+                customer</a></p>
+
+          </div>
+          <div class="card-body">
+            <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+              <table class="table my-0" id="dataTable">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>PAN</th>
+                    <th>Address</th>
+                    <th>Accounts</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let customer of customers">
+                    <td scope="row">{{ customer.username }}</td>
+                    <td>{{ customer.dateOfBirth }}</td>
+                    <td>{{ customer.pan }}</td>
+                    <td>{{ customer.address }}</td>
+                    <td><a style="color: blue;" (click)="viewAccounts(customer.userid)">View accounts</a></td>
+                  </tr>
+                </tbody>
+
+              </table>
+              
+              <div *ngIf="error" class="alert alert-danger mt-3 mb-0">
+                {{ error }}
+            </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>

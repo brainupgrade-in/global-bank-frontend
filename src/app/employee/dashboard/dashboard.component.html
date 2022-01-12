@@ -1,0 +1,68 @@
+<div id="wrapper">
+  <nav
+    class="
+      navbar navbar-dark
+      align-items-start
+      sidebar sidebar-dark
+      accordion
+      bg-gradient-primary
+      p-0
+    "
+  >
+    <div class="container-fluid d-flex flex-column p-0">
+      <a
+        class="
+          navbar-brand
+          d-flex
+          justify-content-center
+          align-items-center
+          sidebar-brand
+          m-0
+        "
+        href="#"
+      >
+        <div class="sidebar-brand-icon rotate-n-15">
+          <em class="fas fa-laugh-wink"></em>
+        </div>
+        <div class="sidebar-brand-text mx-2"><span>MFPE BANK</span></div>
+      </a>
+      <hr class="sidebar-divider my-0" />
+      <ul class="navbar-nav text-light" id="accordionSidebar">
+        <li class="nav-item">
+          <a class="nav-link active" (click)="getDashboard()"
+            ><em class="fas fa-tachometer-alt"></em><span> Dashboard</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="getCustomers()"
+            ><em class="fas fa-user"></em><span> Customers</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="logout()"
+            ><em class="fas fa-sign-out-alt"></em><span> Logout</span></a
+          >
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="d-flex flex-column" id="content-wrapper">
+    <div id="content">
+      <br />
+      <br />
+      <div class="container-fluid">
+        <h3 class="text-dark mb-4">Employee Dashboard</h3>
+        <div class="card shadow">
+          <div class="card-body">
+            <p>
+              Welcome back, Employee! <br />
+              <br />Here you will be able to create new customers, their
+              respective accounts and retrieve details of the existing
+              customers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

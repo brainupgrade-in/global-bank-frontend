@@ -1,0 +1,164 @@
+<!-- <div class="col-md-6 offset-md-3 mt-5">
+  <div class="card">
+    <h4 class="card-header">Provide customer details</h4>
+    <div class="card-body">
+      <form [formGroup]="customerForm" (ngSubmit)="createCustomer()">
+        <div class="form-group">
+          <label for="userid">Userid</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="userid"
+            name="userid"
+            id="userid"
+            placeholder="Enter a userid"
+          />
+
+          <label for="username">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            formControlName="username"
+            id="username"
+            placeholder="Enter your address"
+          />
+          <label for="password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            formControlName="password"
+            id="password"
+            placeholder="Enter a password"
+          />
+
+          <label for="dateOfBirth">DOB</label>
+          <input
+            type="date"
+            class="form-control"
+            name="dateOfBirth"
+            formControlName="dateOfBirth"
+            id="dateOfBirth"
+            placeholder="Enter your date of birth"
+          />
+
+          <label for="pan">PAN Number</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="pan"
+            name="pan"
+            id="pan"
+            placeholder="Enter your PAN number"
+          />
+
+          <label for="address">Address</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="address"
+            name="address"
+            id="address"
+            placeholder="Enter your address"
+          />
+        </div>
+        <ul class="nav">
+          <li class="nav-item">
+            <button class="btn btn-primary" (click)="createCustomer()">
+              Create Customer
+            </button>
+          </li>
+        </ul>
+        <ul class="nav">
+          <li class="nav-item">
+            <button type="reset" class="btn btn-primary">Reset</button>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+</div> -->
+
+<div id="wrapper">
+  <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+    <div class="container-fluid d-flex flex-column p-0"><a
+        class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+        <div class="sidebar-brand-icon rotate-n-15"><em class="fas fa-laugh-wink"></em></div>
+        <div class="sidebar-brand-text mx-2"><span>MFPE BANK</span></div>
+      </a>
+      <hr class="sidebar-divider my-0">
+      <ul class="navbar-nav text-light" id="accordionSidebar">
+        <li class="nav-item"><a class="nav-link" (click)="getDashboard()"><em class="fas fa-tachometer-alt"></em><span>
+              Dashboard</span></a></li>
+        <li class="nav-item "><a class="nav-link active" (click)="getCustomers()"><em class="fas fa-user"></em><span>
+              Customers</span></a></li>
+        <li class="nav-item"><a class="nav-link" (click)="logout()"><em class="fas fa-sign-out-alt"></em><span>
+              Logout</span></a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <div class="d-flex flex-column" id="content-wrapper">
+    <div id="content">
+
+      <br>
+      <div class="container-fluid">
+        <h3 class="text-dark mb-4">Add new Customer </h3>
+        <div class="card shadow">
+          <div class="card-header py-3">
+            <p class="text-primary m-0 fw-bold">Enter customer info<a class="btn btn-primary"
+                style="float: right; color: white;" (click)="createCustomer()">Create</a></p>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="customerForm" (ngSubmit)="createCustomer()">
+              <div class="form-group mb-3">
+                <label for="userid">Userid</label>
+                <input type="text" class="form-control" formControlName="userid" name="userid" id="userid"
+                  placeholder="Enter a userid" />
+              </div>
+              <div class="form-group mb-3">
+
+                <label for="username">Username</label>
+                <input type="text" class="form-control" name="username" formControlName="username" id="username"
+                  placeholder="Enter your address" />
+              </div>
+              <div class="form-group mb-3">
+
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" formControlName="password" id="password"
+                  placeholder="Enter a password" />
+              </div>
+
+              <div class="form-group mb-3">
+                <label for="dateOfBirth">DOB</label>
+                <input type="date" class="form-control" name="dateOfBirth" formControlName="dateOfBirth"
+                  id="dateOfBirth" placeholder="Enter your date of birth" />
+              </div>
+              <div class="form-group mb-3">
+                <label for="pan">PAN Number</label>
+                <input type="text" class="form-control" formControlName="pan" name="pan" id="pan"
+                  placeholder="Enter your PAN number" />
+              </div>
+              <div class="form-group mb-3">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" formControlName="address" name="address" id="address"
+                  placeholder="Enter your address" />
+              </div>
+
+            </form>
+
+            <div *ngIf="error" class="alert alert-danger mt-3 mb-0">
+              {{ error }}
+          </div>
+
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
