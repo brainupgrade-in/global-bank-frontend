@@ -24,7 +24,7 @@ export class AuthenticationService {
 
   login(userid: string, password: string) {
     return this.http
-      .post<any>(`http://authentication.global-bank.svc.cluster.local/auth-ms/login`, { userid, password })
+      .post<any>(`/auth-ms/login`, { userid, password })
       .pipe(
         map((user) => {
           // store user details and jwt token in local storage to keep user logged in between page refreshes

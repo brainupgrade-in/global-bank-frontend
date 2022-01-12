@@ -15,12 +15,12 @@ export class AccountService {
 
   getCustAccounts(customerid: string) {
     return this.http.get<Account[]>(
-      `http://account.global-bank.svc.cluster.local/account-ms/getAccounts/${customerid}`
+      `/account-ms/getAccounts/${customerid}`
     );
   }
   getAccount(accountid: number) {
     return this.http.get<Account>(
-      `http://account.global-bank.svc.cluster.local/account-ms/getAccount/${accountid}`
+      `/account-ms/getAccount/${accountid}`
     );
   }
 
@@ -33,7 +33,7 @@ export class AccountService {
     ownerName: string
   ) {
     return this.http.post<AccountCreationStatus>(
-      `http://account.global-bank.svc.cluster.local/account-ms/createAccount/${customerid}`,
+      `/account-ms/createAccount/${customerid}`,
       { accountId, customerId, currentBalance, accountType, ownerName }
     );
   }

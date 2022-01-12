@@ -14,7 +14,7 @@ export class RulesService {
 
   }
   getServiceCharges(){
-      return this.http.get<Account[]>(`http://account.global-bank.svc.cluster.local/account-ms/getAccount/10054546`);
+      return this.http.get<Account[]>(`/account-ms/getAccount/10054546`);
   }
 
 

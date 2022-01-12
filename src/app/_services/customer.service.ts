@@ -11,7 +11,7 @@ export class CustomerService {
 
   getCustomer(userid: string) {
     return this.http.get<Customer>(
-      `http://customer.global-bank.svc.cluster.local/customer/getCustomerDetails/${userid}`
+      `/customer/getCustomerDetails/${userid}`
     );
   }
 
@@ -24,14 +24,14 @@ export class CustomerService {
     address: string
   ) {
     return this.http.post<Customer>(
-      `http://customer.global-bank.svc.cluster.local/customer/createCustomer`,
+      `/customer/createCustomer`,
       { userid, username, password, dateOfBirth, pan, address }
     );
   }
 
   getAllCustomers() {
     return this.http.get<Customer[]> (
-      `http://customer.global-bank.svc.cluster.local/customer/getCustomers`
+      `/customer/getCustomers`
     );
   }
 }

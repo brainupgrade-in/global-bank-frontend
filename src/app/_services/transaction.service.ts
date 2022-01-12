@@ -15,19 +15,19 @@ export class TransactionService {
 
   getTransaction(accountid: number) {
     return this.http.get<Transaction[]>(
-      `http://transaction.global-bank.svc.cluster.local/transaction-ms/getAllTransByAccId/${accountid}`
+      `/transaction-ms/getAllTransByAccId/${accountid}`
     );
   }
 
   withdarw(accountId: number, amount: number) {
     return this.http.post<Account>(
-      `http://account.global-bank.svc.cluster.local/account-ms/withdraw`,
+      `/account-ms/withdraw`,
       { accountId, amount }
     );
   }
 
   deposit(accountId: number, amount: number) {
-    return this.http.post<Account>(`http://account.global-bank.svc.cluster.local/account-ms/deposit`, {
+    return this.http.post<Account>(`/account-ms/deposit`, {
       accountId,
       amount,
     });
@@ -38,7 +38,7 @@ export class TransactionService {
     var amount2 = 1000;
 
     return this.http.post<Boolean>(
-      `http://transaction.global-bank.svc.cluster.local/transaction-ms/transactions`,
+      `/transaction-ms/transactions`,
       {
         sourceAccount: sourceAccount,
         targetAccount: targetAccount,
