@@ -15,19 +15,19 @@ export class TransactionService {
 
   getTransaction(accountid: number) {
     return this.http.get<Transaction[]>(
-      `/transaction-ms/getAllTransByAccId/${accountid}`
+      `/transaction/getAllTransByAccId/${accountid}`
     );
   }
 
   withdarw(accountId: number, amount: number) {
     return this.http.post<Account>(
-      `/account-ms/withdraw`,
+      `/account/withdraw`,
       { accountId, amount }
     );
   }
 
   deposit(accountId: number, amount: number) {
-    return this.http.post<Account>(`/account-ms/deposit`, {
+    return this.http.post<Account>(`/account/deposit`, {
       accountId,
       amount,
     });
@@ -38,7 +38,7 @@ export class TransactionService {
     var amount2 = 1000;
 
     return this.http.post<Boolean>(
-      `/transaction-ms/transactions`,
+      `/transaction/transactions`,
       {
         sourceAccount: sourceAccount,
         targetAccount: targetAccount,

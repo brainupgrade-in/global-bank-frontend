@@ -9,6 +9,6 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   getAll() {
-    return this.http.get<User[]>(`/auth-ms/find`);
+    return this.http.get<User[]>(`/auth/find`);
   }
 }

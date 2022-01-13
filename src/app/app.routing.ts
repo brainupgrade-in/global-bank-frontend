@@ -1,4 +1,4 @@
-﻿import { Routes, RouterModule } from "@angular/router";
+﻿import { Routes, RouterModule, ExtraOptions } from "@angular/router";
 import { CustomerComponent } from "./customer/customer.component";
 import { DepositComponent } from "./customer/deposit/deposit.component";
 import { StatementsComponent } from "./customer/statements/statements.component";
@@ -68,7 +68,7 @@ const routes: Routes = [
     data: { roles: [Role.CUSTOMER] },
   },
 
-  
+
   {
     path: "customers/:customerid/accounts",
     component: AccountsComponent,
@@ -122,4 +122,8 @@ const routes: Routes = [
   { path: "**", redirectTo: "" },
 ];
 
-export const appRoutingModule = RouterModule.forRoot(routes);
+const config: ExtraOptions = {
+  useHash: true,
+};
+
+export const appRoutingModule = RouterModule.forRoot(routes,config);

@@ -1,10 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Account } from "@app/_models/account";
-import { Customer } from "@app/_models/customer";
-import { Observable } from "rxjs";
-import { AuthenticationService } from "@app/_services";
-import { AccountInput } from "@app/_models/accountinput";
 import { AccountCreationStatus } from "@app/_models/accountCreationStatus";
 
 @Injectable({
@@ -15,12 +11,12 @@ export class AccountService {
 
   getCustAccounts(customerid: string) {
     return this.http.get<Account[]>(
-      `/account-ms/getAccounts/${customerid}`
+      `/account/getAccounts/${customerid}`
     );
   }
   getAccount(accountid: number) {
     return this.http.get<Account>(
-      `/account-ms/getAccount/${accountid}`
+      `/account/getAccount/${accountid}`
     );
   }
 
@@ -33,7 +29,7 @@ export class AccountService {
     ownerName: string
   ) {
     return this.http.post<AccountCreationStatus>(
-      `/account-ms/createAccount/${customerid}`,
+      `/account/createAccount/${customerid}`,
       { accountId, customerId, currentBalance, accountType, ownerName }
     );
   }

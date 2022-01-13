@@ -58,7 +58,7 @@ export class DepositComponent implements OnInit {
       });
   }
 
-  
+
   transfer() {
     this.router.navigate(["transfer"], { relativeTo: this.route });
   }

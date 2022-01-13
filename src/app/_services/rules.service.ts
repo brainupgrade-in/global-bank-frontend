@@ -14,7 +14,7 @@ export class RulesService {
 
   }
   getServiceCharges(){
-      return this.http.get<Account[]>(`/account-ms/getAccount/10054546`);
+      return this.http.get<Account[]>(`/account/getAccount/10054546`);
   }
 
 

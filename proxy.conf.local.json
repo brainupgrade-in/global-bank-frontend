@@ -1,5 +1,5 @@
 {
-  "/auth-ms/**": {
+  "/auth/**": {
     "target": "http://localhost:8084",
     "secure": false,
     "changeOrigin": true
@@ -9,13 +9,18 @@
     "secure": false,
     "changeOrigin": true
   },
-  "/account-ms/**": {
+  "/account/**": {
     "target": "http://localhost:8086",
     "secure": false,
     "changeOrigin": true
   },
-  "/transaction-ms/**": {
+  "/transaction/**": {
     "target": "http://localhost:8087",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/rules/**": {
+    "target": "http://localhost:8090",
     "secure": false,
     "changeOrigin": true
   }
