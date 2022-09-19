@@ -9,11 +9,4 @@ node {
         app = docker.build("brainupgrade/global-bank-frontend","-f Dockerfile-multi .")
     }
 
-    stage('Test image') {
-        app.inside {
-            sh 'echo "Tests passed"'
-        }
-    }
-
-    
 }
