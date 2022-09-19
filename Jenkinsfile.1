@@ -6,7 +6,7 @@ node {
     }
 
     stage('Build image') {
-        app = docker.build("brainupgrade/global-bank-frontend","-f Dockerfile-multi .")
+        app = docker.build("brainupgrade/global-bank-frontend","-f Dockerfile-multi -t brainupgrade/global-bank-frontend:${env.BUILD_NUMBER} .")
     }
 
 }
