@@ -2,7 +2,7 @@ name: build
 
 on:
   push:
-    branches: [k8s]
+    branches: [main, k8s]
   pull_request:
   workflow_dispatch:
 
