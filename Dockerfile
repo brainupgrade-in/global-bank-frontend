@@ -1,5 +1,15 @@
-FROM nginx:1.17.1-alpine
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY ./ /usr/share/nginx/html
+# Multi-stage: the old Dockerfile assumed you had already run `ng build` and
+# copied the result in by hand. This builds inside the image instead, so
+# `docker build .` is the whole story.
 
-# rm -rf dist &&  npm run build && cp nginx-multi.conf dist/nginx.conf && cd dist && docker build -f ../Dockerfile -t localhost:32000/brainupgrade/global-bank-frontend:1.0.0 -t brainupgrade/global-bank-frontend:1.0.0 . && docker push brainupgrade/global-bank-frontend:1.0.0 && docker push localhost:32000/brainupgrade/global-bank-frontend:1.0.0
+FROM node:22-alpine AS build
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+FROM nginx:1.27-alpine
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /app/dist /usr/share/nginx/html
+EXPOSE 80
