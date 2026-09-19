@@ -102,3 +102,16 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Vite local env overrides
+*.local
+
+# Editor / OS — keep shareable VS Code config, ignore the rest
+.idea/
+.vscode/*
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/mcp.json
+.DS_Store
+*.swp
