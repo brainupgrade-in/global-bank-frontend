@@ -11,7 +11,10 @@ npm run dev        # http://localhost:4200
 ```
 
 The dev server proxies `/auth`, `/customer`, `/account`, `/transaction` and `/rules` to
-localhost:8084–8090, mirroring what nginx does in the container. The app only ever calls
+localhost:8084–8090 (`vite.config.ts`), mirroring what nginx does in the container. To run the
+five services as well, use `scripts/local.sh` in
+[`global-bank-platform`](https://github.com/brainupgrade-in/global-bank-platform); it starts
+this dev server too. The app only ever calls
 same-origin paths, so nothing in the code knows where the services live.
 
 ```bash
@@ -52,8 +55,10 @@ src/
 ## Deployment
 
 `Dockerfile` is multi-stage and builds the app itself — `docker build .` is the whole story.
-The previous one assumed you had already run `ng build` and copied `dist/` in by hand.
 
 `nginx.conf` proxies to Kubernetes Service names (`auth`, `customer`, `account`,
 `transaction`, `rules`), not a hardcoded LAN address, and falls back to `index.html` so deep
-links resolve.
+links resolve. The Kubernetes manifests live in `global-bank-platform/k8s/`, not here.
+
+`main` is the default branch. `k8s` is kept identical to it for older links; when `main`
+moves, fast-forward `k8s` to match.
